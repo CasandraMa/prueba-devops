@@ -3,12 +3,8 @@ name: Pytest
 on:
   push:
     branches: [ main ]
-    paths:
-      - src/**
-  pull_request:
     branches: [ main ]
-    paths:
-      - src/**
+   
 
 jobs:
   build:
@@ -16,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Python unit tests
         run: python3 -u -m unittest discover
