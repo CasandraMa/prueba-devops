@@ -29,6 +29,8 @@ jobs:
           context: .
           push: true 
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/examengaleria:latest
+      - name: Run Python unit tests
+        run: python3 -u -m unittest discover
 
   aws:
     name: Deploy image to aws
@@ -56,6 +58,7 @@ jobs:
             sleep 60
             docker compose down --rmi all
             docker compose up -d
+        
 
 # https://github.com/docker/login-action
 # https://github.com/docker/build-push-action
