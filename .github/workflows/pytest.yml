@@ -3,7 +3,6 @@ name: Pytest
 on:
   push:
    
-
 jobs:
   build:
     name: build and push Docker image
@@ -12,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run Python unit tests
-        run: python3 -u -m unittest discover
+        run: python3 -u -m pytest discover
